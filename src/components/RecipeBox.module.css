@@ -1,0 +1,68 @@
+.recipeBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.recipeTitle{
+    font-size: 1.1rem;
+    color: #1d3557;
+}
+
+.iconsRow{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 1.5rem;
+    gap: 1rem;
+}
+
+.iconsBox img{
+    width: 20%;
+}
+
+.iconsBox p{
+    margin: 0;
+    font-size: 1rem;
+    color: #1d3557;
+}
+
+.iconsBoxHeader{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    gap: 0.2rem;
+    color: #e63946;
+}
+
+.recipeBox .headerIcon{
+    width: 10%;
+    padding: 3%;
+    background-color: #f1faee;
+    border-radius: 45%;
+}
+
+.recipeBox button{
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 0.7rem 5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1060px){
+    .recipeBox{
+        width: 40%;
+    }
+}
+
+@media (max-width: 670px){
+    .recipeBox{
+        width: 80%;
+    }
+}

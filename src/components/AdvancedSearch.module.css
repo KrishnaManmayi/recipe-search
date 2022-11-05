@@ -1,0 +1,113 @@
+.filterBoxHeader, .advancedFiltersBox{
+    display: flex;
+    width: max-content;
+    margin: 1rem auto; 
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.advancedFiltersBox button{
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid #457b9d;
+    background-color: white;
+    color: #1d3557;
+    width: 8rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.inputBox{
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: white;
+    border: 1px solid #e9ecf2;
+}
+
+.inputBox img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.filterBoxHeader input {
+    padding: 1rem;
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    color: #a9b8c9;
+    -webkit-appearance: none;
+    transition: all 240ms ease-out;
+    
+};
+
+.filterBoxHeader input::placeholder {
+    color: #6d7f8f;
+}
+
+.filterBoxHeader input:focus {
+    outline: none;
+    color: #6d7f8f;
+}
+
+.hideIngredientsContainer{
+    cursor: pointer;
+}
+
+.hideIngredientsContainer:hover{
+    color: #e63946;
+    font-weight: bold;
+}
+
+.showIngredientsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;   
+    margin: 0 auto; 
+}
+
+.matchingResults{
+    color: #e63946;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-top: 0;
+}
+
+.ingredientFilters{
+    margin-left: 10%;
+}
+
+.includedIngredient, .excludedIngredient{
+    background-color: #457b9d;
+    color: #f1faee;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.includedIngredient img, .excludedIngredient img{
+    height: 0.8rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.excludedIngredient{
+    text-decoration: line-through;
+}
+
+@media (max-width: 930px){
+    .filterBoxHeader, .advancedFiltersBox{
+        justify-content: center;
+        flex-wrap: wrap;
+        width: fit-content;
+    }
+    .advancedFiltersBox{
+        gap: 0;
+    }
+}
