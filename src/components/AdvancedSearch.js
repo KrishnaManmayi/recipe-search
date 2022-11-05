@@ -6,6 +6,7 @@ import SearchIcon from "./../assets/images/search_icon.svg";
 import RemoveIcon from "./../assets/images/remove_icon.svg";
 import AddIcon from "./../assets/images/add_icon.svg";
 import CrossIcon from "./../assets/images/cross.svg";
+import LoadingGif from "./../assets/gif/loading.gif";
 import RecipeList from "./RecipeList";
 import { Menu, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
@@ -83,6 +84,7 @@ const IngredientsBox = (props) => {
 const AdvancedSearch = () => {
     const history = useHistory();
     const location = useLocation();
+    const [loading, setLoading] = useState(true);
     const [searchString, setSearchString] = useState(
         location.state.searchString
     );
@@ -179,10 +181,12 @@ const AdvancedSearch = () => {
     };
 
     const fetchRecipe = async () => {
+        setLoading(true);
         const response = await axios.post(
             "http://localhost:8080/api/recipe/search",
             searchCriteria
         );
+        setLoading(false);
         setRecipeList(response.data);
     };
 
@@ -344,41 +348,53 @@ const AdvancedSearch = () => {
                     </Menu>
                 </div>
             </div>
-            <p className={classes.matchingResults}>
-                {recipeList.length} matching results for "
-                <i>{searchCriteria.keyword}</i>"
-            </p>
-            <div className={classes.ingredientFilters}>
-                {includedIngredientsRaw.map((ingredient) => (
-                    <span
-                        key={ingredient}
-                        className={classes.includedIngredient}>
-                        {ingredient}{" "}
-                        <img
-                            src={CrossIcon}
-                            alt="Remove"
-                            onClick={(e) =>
-                                removeIncludedIngredientHandler(ingredient)
-                            }
-                        />
-                    </span>
-                ))}
-                {excludedIngredientsRaw.map((ingredient) => (
-                    <span
-                        key={ingredient}
-                        className={classes.excludedIngredient}>
-                        {ingredient}{" "}
-                        <img
-                            src={CrossIcon}
-                            alt="Remove"
-                            onClick={(e) =>
-                                removeExcludedIngredientHandler(ingredient)
-                            }
-                        />
-                    </span>
-                ))}
-            </div>
-            <RecipeList recipeList={recipeList} />
+            {loading ? (
+                <div className={classes.loadingContainer}>
+                    <img src={LoadingGif} alt="Loading" />
+                </div>
+            ) : (
+                <>
+                    <p className={classes.matchingResults}>
+                        {recipeList.length} matching results for "
+                        <i>{searchCriteria.keyword}</i>"
+                    </p>
+                    <div className={classes.ingredientFilters}>
+                        {includedIngredientsRaw.map((ingredient) => (
+                            <span
+                                key={ingredient}
+                                className={classes.includedIngredient}>
+                                {ingredient}{" "}
+                                <img
+                                    src={CrossIcon}
+                                    alt="Remove"
+                                    onClick={(e) =>
+                                        removeIncludedIngredientHandler(
+                                            ingredient
+                                        )
+                                    }
+                                />
+                            </span>
+                        ))}
+                        {excludedIngredientsRaw.map((ingredient) => (
+                            <span
+                                key={ingredient}
+                                className={classes.excludedIngredient}>
+                                {ingredient}{" "}
+                                <img
+                                    src={CrossIcon}
+                                    alt="Remove"
+                                    onClick={(e) =>
+                                        removeExcludedIngredientHandler(
+                                            ingredient
+                                        )
+                                    }
+                                />
+                            </span>
+                        ))}
+                    </div>
+                    <RecipeList recipeList={recipeList} />
+                </>
+            )}
         </div>
     );
 };

@@ -15,11 +15,11 @@
     flex-wrap: wrap;
     -webkit-font-smoothing: antialiased;
     color: #acbdce;
-    margin: 1.5rem;
+    margin: 3rem 1.5rem;
 }
 
 .imageContainer{
-    width: 45%;
+    width: 40%;
 }
 
 .imageContainer img{
@@ -126,6 +126,10 @@
 }
 
 @media (max-width: 768px){
+    .homeContainer{
+        margin: 2rem auto;
+    }
+
     .imageContainer{
         width: 40%;
     }

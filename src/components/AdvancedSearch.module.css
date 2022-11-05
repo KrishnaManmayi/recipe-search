@@ -100,7 +100,13 @@
 .excludedIngredient{
     text-decoration: line-through;
 }
-
+.loadingContainer{
+    width: fit-content;
+    margin: 1.5rem auto;
+}
+.loadingContainer img{
+    width: 4rem;
+}
 @media (max-width: 930px){
     .filterBoxHeader, .advancedFiltersBox{
         justify-content: center;
