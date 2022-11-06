@@ -184,7 +184,10 @@ const AdvancedSearch = () => {
         setLoading(true);
         const response = await axios.post(
             "https://recipe.herokuapp.com/api/recipe/search",
-            searchCriteria
+            searchCriteria,
+            {
+                headers: { "Content-Type": "application/json" },
+            }
         );
         setLoading(false);
         setRecipeList(response.data);
