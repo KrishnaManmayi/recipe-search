@@ -183,7 +183,7 @@ const AdvancedSearch = () => {
     const fetchRecipe = async () => {
         setLoading(true);
         const response = await axios.post(
-            "http://localhost:8080/api/recipe/search",
+            "https://recipe.herokuapp.com/api/recipe/search",
             searchCriteria
         );
         setLoading(false);
@@ -193,7 +193,7 @@ const AdvancedSearch = () => {
     const onIncludeIngredientsChange = async (ingredientSearchString) => {
         setIncludedIngredientsRaw((prev) => [...prev, ingredientSearchString]);
         const response = await axios.get(
-            `http://localhost:8080/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
+            `https://recipe.herokuapp.com/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
         );
         const similarIngredients = response.data;
         const includedIngredients = searchCriteria.includedIngredients;
@@ -209,7 +209,7 @@ const AdvancedSearch = () => {
     const onExcludeIngredientsChange = async (ingredientSearchString) => {
         setExcludedIngredientsRaw((prev) => [...prev, ingredientSearchString]);
         const response = await axios.get(
-            `http://localhost:8080/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
+            `https://recipe.herokuapp.com/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
         );
         const similarIngredients = response.data;
         const excludedIngredients = searchCriteria.excludedIngredients;
@@ -228,7 +228,7 @@ const AdvancedSearch = () => {
             prev.filter((item) => item !== ingredientSearchString)
         );
         const response = await axios.get(
-            `http://localhost:8080/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
+            `https://recipe.herokuapp.com/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
         );
         const similarIngredients = response.data;
         let includedIngredients = searchCriteria.includedIngredients;
@@ -251,7 +251,7 @@ const AdvancedSearch = () => {
             prev.filter((item) => item !== ingredientSearchString)
         );
         const response = await axios.get(
-            `http://localhost:8080/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
+            `https://recipe.herokuapp.com/api/ingredient/getSimilarIngredients/${ingredientSearchString}`
         );
         const similarIngredients = response.data;
         const excludedIngredients = searchCriteria.excludedIngredients;
