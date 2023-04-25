@@ -1,5 +1,4 @@
-const BASE_URL =
-    "http://recipesearchapi-env.eba-bcinprem.ap-south-1.elasticbeanstalk.com";
+const BASE_URL = "https://recipe-api-x8ol.onrender.com";
 
 export const RecipeSearchApi = () => {
     return BASE_URL + "/api/recipe/search";
